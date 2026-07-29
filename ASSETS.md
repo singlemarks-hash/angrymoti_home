@@ -29,6 +29,18 @@
 
 > 스크린샷 자리(`variant="screenshot"`)는 스마트폰 프레임 안에 들어갑니다. 세로 비율(대략 250×510) 이미지를 넣어주세요.
 
+## 스토어 배지 (public/assets/badges/) — 출시 전 교체 권장
+
+Apple·Google은 브랜드 가이드에서 **각사가 배포하는 원본 배지 아트워크를 그대로 사용**하도록 요구합니다.
+현재는 같은 레이아웃의 대체 배지를 그려 넣어 둔 상태이며, 아래 경로에 원본 파일을 저장하면 코드 수정 없이 자동 교체됩니다.
+
+| 파일명 | 받는 곳 | 비고 |
+|---|---|---|
+| `app_store.svg` | Apple — App Store Marketing Tools (`toolsformarketing.apple.com`)의 배지 다운로드 | 한국어(ko-kr) 배지 선택. 다크 배경이므로 흰색 배지 권장 |
+| `google_play.png` | Google Play — Play 브랜드 가이드라인 페이지의 배지 다운로드 | 한국어 배지 선택 |
+
+파일을 넣으면 `components/ui/StoreBadge.tsx`가 원본 이미지를 우선 렌더링합니다. 높이는 54px로 맞춰지고 가로 비율은 원본 그대로 유지됩니다.
+
 ## 아이콘 SVG (public/assets/svg/)
 
 현재 lucide-react 아이콘으로 임시 대체 중입니다. 원본 SVG로 교체하려면 각 컴포넌트의 `TODO: 교체` 주석 위치에서 lucide 아이콘을 `<img src="/assets/svg/...">` 로 바꿔주세요.

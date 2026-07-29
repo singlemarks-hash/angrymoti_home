@@ -1,7 +1,6 @@
-import { Apple } from "lucide-react";
 import PlaceholderImage from "@/components/ui/PlaceholderImage";
 import Reveal from "@/components/ui/Reveal";
-import { APP_STORE_URL } from "@/lib/constants";
+import StoreButtons from "@/components/ui/StoreButtons";
 import { getMessages } from "@/lib/i18n";
 
 export default function Section10CTA({ locale }: { locale: string }) {
@@ -15,20 +14,16 @@ export default function Section10CTA({ locale }: { locale: string }) {
           <h2 className="text-[28px] font-extrabold tracking-[-0.01em] md:text-[40px]">
             {t.cta.title}
           </h2>
-          <p className="mt-4 text-[16px] text-white/85 md:text-[19px]">{t.cta.sub}</p>
-          <a
-            href={APP_STORE_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2.5 rounded-full bg-ink px-7 py-4 text-[16px] font-bold text-cream transition-transform hover:scale-[1.03] md:text-[18px]"
-          >
-            {/* TODO: 교체 → /assets/svg/symbol_apple.svg */}
-            <Apple className="h-5 w-5 fill-current" aria-hidden="true" />
-            {t.cta.button}
-          </a>
+          <p className="mx-auto mt-4 max-w-[560px] text-[16px] text-white/85 md:text-[19px]">
+            {t.cta.sub}
+          </p>
         </Reveal>
 
-        <Reveal delay={200} className="mt-16 md:mt-20">
+        <Reveal delay={150} className="mt-8">
+          <StoreButtons locale={locale} tone="brand" />
+        </Reveal>
+
+        <Reveal delay={300} className="mt-16 md:mt-20">
           <ul className="grid grid-cols-4 gap-3 md:gap-5">
             {logos.map((file) => (
               <li key={file} className="opacity-60 grayscale">

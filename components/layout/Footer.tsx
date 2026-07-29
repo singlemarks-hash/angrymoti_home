@@ -3,7 +3,7 @@ import { Youtube, Instagram } from "lucide-react";
 import { APP_STORE_URL, EXTERNAL, SNS } from "@/lib/constants";
 import { getMessages } from "@/lib/i18n";
 
-/* TODO: 교체 → /assets/svg/youtube.svg, /assets/svg/instagram.svg, /assets/svg/turning_logo_true_white_40.svg */
+/* TODO: 교체 → /assets/svg/youtube.svg, /assets/svg/instagram.svg, /assets/svg/moti_logo_white.svg */
 
 export default function Footer({ locale }: { locale: string }) {
   const t = getMessages(locale);
@@ -12,8 +12,8 @@ export default function Footer({ locale }: { locale: string }) {
     {
       title: "서비스",
       links: [
-        { label: "기능", href: `/${locale}#section_07` },
-        { label: "무료체험", href: `/${locale}/billing` },
+        { label: "사용 방법", href: `/${locale}#section_07` },
+        { label: "무료 체험", href: `/${locale}/billing` },
         { label: "요금제", href: `/${locale}/billing#section_07` },
         { label: "다운로드", href: APP_STORE_URL, external: true },
       ],
@@ -23,7 +23,7 @@ export default function Footer({ locale }: { locale: string }) {
       links: [
         { label: "회사소개", href: `/${locale}/about` },
         { label: "채용", href: EXTERNAL.careers, external: true },
-        { label: "스토어", href: APP_STORE_URL, external: true },
+        { label: "App Store", href: APP_STORE_URL, external: true },
       ],
     },
     {
@@ -44,13 +44,19 @@ export default function Footer({ locale }: { locale: string }) {
     },
   ];
 
+  // SNS 계정 개설 전 — 아이콘은 노출하되 이동하지 않는다.
+  const socials = [
+    { key: "youtube", label: "유튜브", href: SNS.youtube, Icon: Youtube },
+    { key: "instagram", label: "인스타그램", href: SNS.instagram, Icon: Instagram },
+  ];
+
   return (
-    <footer className="bg-gray-900 text-gray-400">
+    <footer className="border-t border-ink-line bg-ink-surface text-cream-muted">
       <div className="container-content py-14 md:py-20">
         <div className="grid grid-cols-2 gap-x-6 gap-y-10 md:grid-cols-4">
           {columns.map((col) => (
             <nav key={col.title} aria-label={col.title}>
-              <h2 className="mb-4 text-[15px] font-semibold text-white">{col.title}</h2>
+              <h2 className="mb-4 text-[15px] font-bold text-cream">{col.title}</h2>
               <ul className="space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.label}>
@@ -59,12 +65,12 @@ export default function Footer({ locale }: { locale: string }) {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[14px] transition-colors hover:text-white"
+                        className="text-[14px] transition-colors hover:text-cream"
                       >
                         {link.label}
                       </a>
                     ) : (
-                      <Link href={link.href} className="text-[14px] transition-colors hover:text-white">
+                      <Link href={link.href} className="text-[14px] transition-colors hover:text-cream">
                         {link.label}
                       </Link>
                     )}
@@ -75,41 +81,47 @@ export default function Footer({ locale }: { locale: string }) {
           ))}
         </div>
 
-        <div className="mt-12 border-t border-gray-700/60 pt-8 md:mt-16">
-          <p className="text-[15px] font-semibold text-gray-300">{t.footer.company}</p>
+        <div className="mt-12 border-t border-ink-line pt-8 md:mt-16">
+          <p className="text-[15px] font-bold text-cream">{t.footer.company}</p>
           <p className="mt-2 text-[13px] leading-relaxed">
             {t.footer.bizInfo}
             <br />
-            {t.footer.zip}
+            {t.footer.mailOrder}
             <br />
             {t.footer.address}
           </p>
 
           <div className="mt-6 flex items-center gap-3">
-            <a
-              href={SNS.youtube}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="터닝 유튜브"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-gray-300 transition-colors hover:bg-gray-700 hover:text-white"
-            >
-              <Youtube className="h-5 w-5" aria-hidden="true" />
-            </a>
-            <a
-              href={SNS.instagram}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="터닝 인스타그램"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-gray-800 text-gray-300 transition-colors hover:bg-gray-700 hover:text-white"
-            >
-              <Instagram className="h-5 w-5" aria-hidden="true" />
-            </a>
+            {socials.map(({ key, label, href, Icon }) =>
+              href ? (
+                <a
+                  key={key}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`앵그리모티 ${label}`}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-ink-raised text-cream-muted transition-colors hover:bg-ink-line hover:text-cream"
+                >
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </a>
+              ) : (
+                <button
+                  key={key}
+                  type="button"
+                  aria-label={`앵그리모티 ${label} (준비 중)`}
+                  aria-disabled="true"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-ink-raised text-cream-dim transition-colors hover:text-cream-muted"
+                >
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </button>
+              ),
+            )}
           </div>
 
           <div className="mt-8 flex items-center justify-between">
-            <p className="text-[13px]">{t.footer.copyright}</p>
-            {/* TODO: 교체 → /assets/svg/turning_logo_true_white_40.svg */}
-            <span className="text-[18px] font-extrabold tracking-tight text-white">Turning</span>
+            <p className="text-[13px] text-cream-dim">{t.footer.copyright}</p>
+            {/* TODO: 교체 → 화이트 로고 SVG */}
+            <span className="text-[16px] font-extrabold tracking-tight text-cream-dim">selfer.</span>
           </div>
         </div>
       </div>

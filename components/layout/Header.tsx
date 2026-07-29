@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
-import { navLinks } from "@/lib/constants";
+import { APP_STORE_URL, navLinks } from "@/lib/constants";
 import { getMessages } from "@/lib/i18n";
 import MobileMenu from "./MobileMenu";
 
@@ -26,17 +26,20 @@ export default function Header({ locale }: { locale: string }) {
     <>
       <header
         className={`sticky top-0 z-40 w-full transition-all duration-300 ${
-          scrolled ? "bg-white/95 shadow-[0_1px_12px_rgba(0,0,0,0.08)] backdrop-blur" : "bg-white"
+          scrolled
+            ? "border-b border-ink-line bg-ink/90 backdrop-blur-md"
+            : "border-b border-transparent bg-ink"
         }`}
       >
         <div className="container-content flex h-16 items-center justify-between md:h-[72px]">
-          {/* TODO: 교체 → 터닝 로고 이미지 */}
+          {/* TODO: 교체 → 앵그리모티 로고 이미지 */}
           <Link
             href={`/${locale}`}
-            className="text-[22px] font-extrabold tracking-tight text-brand"
-            aria-label="터닝 홈"
+            className="flex items-center gap-2 text-[19px] font-extrabold tracking-tight text-cream md:text-[21px]"
+            aria-label="앵그리모티 홈"
           >
-            Turning
+            <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-tomato" />
+            앵그리모티
           </Link>
 
           <nav aria-label="주 메뉴" className="hidden items-center gap-8 lg:flex">
@@ -44,7 +47,7 @@ export default function Header({ locale }: { locale: string }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[16px] font-medium text-gray-700 transition-colors hover:text-brand"
+                className="text-[16px] font-medium text-cream-muted transition-colors hover:text-cream"
               >
                 {link.label}
               </Link>
@@ -53,17 +56,17 @@ export default function Header({ locale }: { locale: string }) {
 
           <div className="flex items-center gap-3">
             <a
-              href="https://apps.apple.com/kr/app/id6449270376"
+              href={APP_STORE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden rounded-full bg-brand px-5 py-2.5 text-[15px] font-semibold text-white transition-colors hover:bg-brand-dark md:inline-flex"
+              className="hidden rounded-full bg-tomato px-5 py-2.5 text-[15px] font-bold text-white transition-colors hover:bg-tomato-dark md:inline-flex"
             >
               {t.header.cta}
             </a>
             <button
               type="button"
               onClick={() => setMenuOpen(true)}
-              className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-gray-800 lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-cream lg:hidden"
               aria-label="메뉴 열기"
               aria-expanded={menuOpen}
             >

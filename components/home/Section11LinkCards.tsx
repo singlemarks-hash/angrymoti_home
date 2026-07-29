@@ -9,21 +9,21 @@ export default function Section11LinkCards({ locale }: { locale: string }) {
   const t = getMessages(locale);
 
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad bg-ink">
       <div className="container-content grid gap-4 md:grid-cols-2 md:gap-5">
         {t.linkCards.map((card, i) => {
           const isExternal = card.href === "#" || card.href.startsWith("http");
           const inner = (
             <>
-              <p className="text-[17px] font-bold text-gray-900 md:text-[19px]">{card.text}</p>
-              <span className="mt-3 inline-flex items-center gap-1.5 text-[15px] font-semibold text-brand transition-transform duration-200 group-hover:translate-x-1">
+              <p className="text-[17px] font-bold text-cream md:text-[19px]">{card.text}</p>
+              <span className="mt-3 inline-flex items-center gap-1.5 text-[15px] font-bold text-tomato transition-transform duration-200 group-hover:translate-x-1">
                 {card.cta}
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </span>
             </>
           );
           const cardClass =
-            "group flex flex-col items-start rounded-3xl bg-gray-50 p-7 transition-colors hover:bg-brand-soft md:p-9";
+            "group flex flex-col items-start rounded-3xl border border-ink-line bg-ink-surface p-7 transition-colors hover:border-tomato/40 hover:bg-ink-raised md:p-9";
 
           return (
             <Reveal key={card.text} delay={i * 80}>

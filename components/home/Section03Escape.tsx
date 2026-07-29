@@ -5,7 +5,7 @@ export default function Section03Escape({ locale }: { locale: string }) {
   const t = getMessages(locale);
 
   return (
-    <section className="section-pad bg-gray-50">
+    <section className="section-pad bg-ink">
       <div className="container-content flex flex-col items-center text-center">
         <Reveal>
           <h2 className="section-title">{t.escape.title1}</h2>
@@ -16,7 +16,7 @@ export default function Section03Escape({ locale }: { locale: string }) {
             {t.escape.chips.map((chip) => (
               <li
                 key={chip}
-                className="rounded-full border border-brand/30 bg-brand-soft px-4 py-2 text-[14px] font-semibold text-brand-deep md:px-5 md:py-2.5 md:text-[16px]"
+                className="rounded-full border border-tomato/40 bg-tomato-soft px-4 py-2 text-[14px] font-bold text-tomato md:px-5 md:py-2.5 md:text-[16px]"
               >
                 {chip}
               </li>

@@ -22,7 +22,7 @@ interface PlaceholderImageProps {
  * 목업 플레이스홀더.
  * public/assets/{dir}/{label} 파일이 실제로 존재하면 그 이미지를 그대로 보여주고,
  * 없으면 점선 목업(에셋 이름 표기)을 보여준다.
- * → 소유자는 파일만 갈아끼우면 코드 수정 없이 교체 완료. (ASSETS.md 참고)
+ * → 파일만 갈아끼우면 코드 수정 없이 교체 완료. (ASSETS.md 참고)
  */
 export default function PlaceholderImage({
   label,
@@ -49,18 +49,18 @@ export default function PlaceholderImage({
   if (variant === "screenshot") {
     return (
       <div
-        className={`relative mx-auto overflow-hidden rounded-[36px] border-[6px] border-gray-800 bg-gray-50 shadow-xl ${className}`}
+        className={`relative mx-auto overflow-hidden rounded-[36px] border-[6px] border-ink-line bg-ink-surface shadow-[0_16px_48px_rgba(0,0,0,0.5)] ${className}`}
         style={{ ...sizeStyle, maxWidth: "100%" }}
       >
         {/* 노치 */}
         <div
           aria-hidden="true"
-          className={`absolute left-1/2 top-2 z-10 h-5 w-20 -translate-x-1/2 rounded-full bg-gray-800 ${loaded ? "opacity-40" : ""}`}
+          className={`absolute left-1/2 top-2 z-10 h-5 w-20 -translate-x-1/2 rounded-full bg-ink-line ${loaded ? "opacity-40" : ""}`}
         />
         {!loaded && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 border-2 border-dashed border-gray-300 bg-gray-50 p-4 text-center">
-            <span className="text-[13px] font-medium text-gray-400">앱 화면</span>
-            <span className="break-all font-mono text-[12px] text-gray-500">{label} 자리</span>
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 border-2 border-dashed border-ink-line bg-ink-surface p-4 text-center">
+            <span className="text-[13px] font-medium text-cream-dim">앱 화면</span>
+            <span className="break-all font-mono text-[12px] text-cream-dim">{label} 자리</span>
           </div>
         )}
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -75,7 +75,7 @@ export default function PlaceholderImage({
   }
 
   const variantBg =
-    variant === "logo" ? "bg-gray-100" : variant === "icon" ? "bg-brand-soft" : "bg-gray-50";
+    variant === "logo" ? "bg-ink-raised" : variant === "icon" ? "bg-tomato-soft" : "bg-ink-surface";
 
   return (
     <div
@@ -84,9 +84,9 @@ export default function PlaceholderImage({
     >
       {!loaded && (
         <div
-          className={`absolute inset-0 flex flex-col items-center justify-center gap-1.5 rounded-2xl border-2 border-dashed border-gray-300 ${variantBg} p-3 text-center`}
+          className={`absolute inset-0 flex flex-col items-center justify-center gap-1.5 rounded-2xl border-2 border-dashed border-ink-line ${variantBg} p-3 text-center`}
         >
-          <span className="break-all font-mono text-[12px] text-gray-500">{label} 자리</span>
+          <span className="break-all font-mono text-[12px] text-cream-dim">{label} 자리</span>
         </div>
       )}
       {/* eslint-disable-next-line @next/next/no-img-element */}

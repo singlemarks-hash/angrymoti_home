@@ -4,13 +4,13 @@ import PlaceholderImage from "@/components/ui/PlaceholderImage";
 import Reveal from "@/components/ui/Reveal";
 import { getMessages } from "@/lib/i18n";
 
-/* TODO: 교체 → /assets/svg/plus_green.svg, /assets/svg/x_green.svg */
+/* TODO: 교체 → /assets/svg/plus.svg, /assets/svg/x.svg */
 
 export default function Section02Screentime({ locale }: { locale: string }) {
   const t = getMessages(locale);
 
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad bg-ink-surface">
       <div className="container-content">
         <Reveal>
           <h2 className="section-title text-center">{t.screentime.title}</h2>
@@ -19,36 +19,37 @@ export default function Section02Screentime({ locale }: { locale: string }) {
         <div className="mt-12 grid items-center gap-10 md:mt-16 lg:grid-cols-3">
           <Reveal delay={100} className="order-2 lg:order-1">
             <div className="flex items-center justify-center gap-3 lg:flex-col lg:items-start">
-              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-jade-soft text-jade">
                 <Plus className="h-5 w-5" aria-hidden="true" />
               </span>
-              <p className="text-[17px] font-medium text-gray-700 md:text-[19px]">{t.screentime.left}</p>
+              <p className="text-[17px] font-medium text-cream-muted md:text-[19px]">
+                {t.screentime.left}
+              </p>
             </div>
           </Reveal>
 
           <Reveal delay={200} className="order-1 lg:order-2">
             <div className="flex flex-col items-center">
-              <p className="text-[40px] font-extrabold leading-none text-brand md:text-[56px]">
-                {t.screentime.hoursPrefix}{" "}
-                <CountUp end={t.screentime.hours} durationMs={1600} />
-                {t.screentime.hoursSuffix}
+              <p className="numeral text-[40px] text-tomato md:text-[56px]">
+                {t.screentime.countPrefix}{" "}
+                <CountUp end={t.screentime.count} durationMs={1600} />
+                {t.screentime.countSuffix}
               </p>
               <div className="relative mt-8">
-                {/* 원형 게이지 장식 */}
                 <div
                   aria-hidden="true"
-                  className="absolute -left-6 -top-6 h-16 w-16 rounded-full border-[6px] border-brand-soft border-t-brand"
+                  className="absolute -left-6 -top-6 h-16 w-16 rounded-full border-[6px] border-ink-line border-t-tomato"
                 />
                 <div
                   aria-hidden="true"
-                  className="absolute -bottom-4 -right-7 h-12 w-12 rounded-full bg-brand-soft"
+                  className="absolute -bottom-4 -right-7 h-12 w-12 rounded-full bg-tomato-soft"
                 />
                 <PlaceholderImage
-                  label="section_02.png"
+                  label="section_02_alarm.png"
                   variant="screenshot"
                   width={230}
                   height={470}
-                  alt="평균 스크린타임 화면 목업"
+                  alt="아침 알람이 여러 개 울리는 화면"
                 />
               </div>
             </div>
@@ -56,10 +57,10 @@ export default function Section02Screentime({ locale }: { locale: string }) {
 
           <Reveal delay={300} className="order-3">
             <div className="flex items-center justify-center gap-3 lg:flex-col lg:items-end">
-              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-soft text-brand">
+              <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-tomato-soft text-tomato">
                 <X className="h-5 w-5" aria-hidden="true" />
               </span>
-              <p className="text-[17px] font-medium text-gray-700 md:text-[19px] lg:text-right">
+              <p className="text-[17px] font-medium text-cream-muted md:text-[19px] lg:text-right">
                 {t.screentime.right}
               </p>
             </div>

@@ -27,49 +27,49 @@ export default function Section08Result({ locale }: { locale: string }) {
   }, []);
 
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad bg-ink-surface">
       <div className="container-content grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
         <Reveal>
           <h2 className="section-title">
-            <span className="text-[44px] font-extrabold text-brand md:text-[64px]">
+            <span className="numeral text-[44px] text-jade md:text-[64px]">
               <CountUp end={t.result.percent} />%
             </span>
             {t.result.titleSuffix}
           </h2>
           <p className="section-sub mt-6">{t.result.body}</p>
-          <p className="mt-4 text-[13px] text-gray-400">{t.result.caption}</p>
+          <p className="mt-4 text-[13px] text-cream-dim">{t.result.caption}</p>
         </Reveal>
 
         <Reveal delay={150}>
-          {/* 전/후 스크린타임 비교 차트 */}
+          {/* 시작 성공률 비교 차트 */}
           <div
             ref={chartRef}
             role="img"
-            aria-label="터닝 사용 전 대비 사용 후 스크린타임이 62% 감소한 비교 차트"
-            className="flex h-[300px] items-end justify-center gap-12 rounded-3xl bg-gray-50 px-8 pb-14 pt-8 md:h-[360px] md:gap-20"
+            aria-label={`그냥 알람 대비 앵그리모티의 시작 성공률이 ${t.result.percent}%로 높다는 비교 차트`}
+            className="flex h-[300px] items-end justify-center gap-12 rounded-3xl border border-ink-line bg-ink px-8 pb-14 pt-8 md:h-[360px] md:gap-20"
           >
             <div className="relative flex h-full w-24 flex-col items-center justify-end md:w-28">
               <div
-                className="w-full rounded-t-2xl bg-gray-300 transition-[height] duration-1000 ease-out"
-                style={{ height: filled ? "100%" : "0%" }}
+                className="w-full rounded-t-2xl bg-ink-line transition-[height] duration-1000 ease-out"
+                style={{ height: filled ? "34%" : "0%" }}
               />
-              <span className="absolute -bottom-9 text-[13px] font-medium text-gray-500 md:text-[14px]">
+              <span className="absolute -bottom-9 left-1/2 -translate-x-1/2 whitespace-nowrap text-[13px] font-medium text-cream-dim md:text-[14px]">
                 {t.result.chartBefore}
               </span>
             </div>
             <div className="relative flex h-full w-24 flex-col items-center justify-end md:w-28">
               <span
-                className={`mb-2 text-[15px] font-bold text-brand transition-opacity delay-700 duration-500 md:text-[17px] ${
+                className={`mb-2 text-[15px] font-bold text-jade transition-opacity delay-700 duration-500 md:text-[17px] ${
                   filled ? "opacity-100" : "opacity-0"
                 }`}
               >
-                -62%
+                {t.result.percent}%
               </span>
               <div
-                className="w-full rounded-t-2xl bg-brand transition-[height] delay-200 duration-1000 ease-out"
-                style={{ height: filled ? "38%" : "0%" }}
+                className="w-full rounded-t-2xl bg-jade transition-[height] delay-200 duration-1000 ease-out"
+                style={{ height: filled ? "100%" : "0%" }}
               />
-              <span className="absolute -bottom-9 text-[13px] font-semibold text-gray-800 md:text-[14px]">
+              <span className="absolute -bottom-9 left-1/2 -translate-x-1/2 whitespace-nowrap text-[13px] font-bold text-cream md:text-[14px]">
                 {t.result.chartAfter}
               </span>
             </div>

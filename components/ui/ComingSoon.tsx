@@ -13,14 +13,14 @@ export default function ComingSoon({ locale, pageName, anchorIds = [] }: ComingS
   const t = getMessages(locale);
 
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad bg-ink">
       <div className="container-content flex min-h-[48vh] flex-col items-center justify-center text-center">
         <span className="eyebrow">{pageName}</span>
         <h1 className="section-title">{t.placeholder.pageTitle}</h1>
         <p className="section-sub mt-4">{t.placeholder.pageBody}</p>
         <Link
           href={`/${locale}`}
-          className="mt-8 inline-flex rounded-full bg-brand px-6 py-3 text-[15px] font-semibold text-white transition-colors hover:bg-brand-dark"
+          className="mt-8 inline-flex rounded-full bg-tomato px-6 py-3 text-[15px] font-bold text-white transition-colors hover:bg-tomato-dark"
         >
           {t.placeholder.backHome}
         </Link>

@@ -34,7 +34,7 @@ export default function MobileMenu({ open, onClose, locale }: MobileMenuProps) {
       aria-modal="true"
       aria-label="모바일 메뉴"
       aria-hidden={!open}
-      className={`fixed inset-0 z-50 bg-white transition-all duration-300 lg:hidden ${
+      className={`fixed inset-0 z-50 bg-ink transition-all duration-300 lg:hidden ${
         open ? "visible opacity-100" : "invisible opacity-0"
       }`}
     >
@@ -42,14 +42,15 @@ export default function MobileMenu({ open, onClose, locale }: MobileMenuProps) {
         <Link
           href={`/${locale}`}
           onClick={onClose}
-          className="text-[22px] font-extrabold tracking-tight text-brand"
+          className="flex items-center gap-2 text-[19px] font-extrabold tracking-tight text-cream"
         >
-          Turning
+          <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-tomato" />
+          앵그리모티
         </Link>
         <button
           type="button"
           onClick={onClose}
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-gray-800"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg text-cream"
           aria-label="메뉴 닫기"
         >
           <X className="h-6 w-6" aria-hidden="true" />
@@ -63,7 +64,7 @@ export default function MobileMenu({ open, onClose, locale }: MobileMenuProps) {
             href={link.href}
             onClick={onClose}
             tabIndex={open ? 0 : -1}
-            className={`border-b border-gray-100 py-5 text-[20px] font-semibold text-gray-900 transition-all duration-300 hover:text-brand ${
+            className={`border-b border-ink-line py-5 text-[20px] font-semibold text-cream transition-all duration-300 hover:text-tomato ${
               open ? "translate-y-0 opacity-100" : "translate-y-3 opacity-0"
             }`}
             style={{ transitionDelay: open ? `${80 + i * 50}ms` : "0ms" }}
@@ -79,7 +80,7 @@ export default function MobileMenu({ open, onClose, locale }: MobileMenuProps) {
           target="_blank"
           rel="noopener noreferrer"
           tabIndex={open ? 0 : -1}
-          className="inline-flex w-full items-center justify-center rounded-full bg-brand px-6 py-4 text-[17px] font-semibold text-white"
+          className="inline-flex w-full items-center justify-center rounded-full bg-tomato px-6 py-4 text-[17px] font-bold text-white"
         >
           {t.header.cta}
         </a>

@@ -5,15 +5,20 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: dark;
   }
   body {
-    @apply bg-white font-sans text-gray-900 antialiased;
+    @apply bg-ink font-sans text-cream antialiased;
     word-break: keep-all;
   }
   :focus-visible {
-    outline: 2px solid #00c471;
-    outline-offset: 2px;
-    border-radius: 4px;
+    outline: 2px solid #ff4834;
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  ::selection {
+    background: #ff4834;
+    color: #fff;
   }
 }
 
@@ -25,13 +30,18 @@
     @apply py-20 md:py-[120px];
   }
   .section-title {
-    @apply text-[26px] font-bold leading-[1.35] md:text-[36px] lg:text-[40px];
+    @apply text-[26px] font-bold leading-[1.35] tracking-[-0.01em] md:text-[36px] lg:text-[40px];
   }
   .section-sub {
-    @apply text-[17px] leading-[1.7] text-gray-600 md:text-[19px];
+    @apply text-[17px] leading-[1.7] text-cream-muted md:text-[19px];
   }
   .eyebrow {
-    @apply mb-3 block text-[14px] font-semibold uppercase tracking-[0.14em] text-brand md:text-[15px];
+    @apply mb-3 block text-[13px] font-bold uppercase tracking-[0.18em] text-tomato md:text-[14px];
+  }
+  /* 타이머 숫자 — 큰 숫자가 브랜드의 얼굴 */
+  .numeral {
+    @apply font-extrabold leading-none tracking-[-0.03em];
+    font-variant-numeric: tabular-nums;
   }
 }
 

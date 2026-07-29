@@ -4,56 +4,62 @@ import { getMessages } from "@/lib/i18n";
 
 export default function Section04Apps({ locale }: { locale: string }) {
   const t = getMessages(locale);
-  const disturbFiles = ["disturb-1.png", "disturb-2.png", "disturb-3.png"];
-  const usefulFiles = ["useful-1.png", "useful-2.png", "useful-3.png"];
+  const willFiles = ["tool-1.png", "tool-2.png", "tool-3.png"];
+  const envFiles = ["moti-1.png", "moti-2.png", "moti-3.png"];
 
   return (
-    <section className="section-pad bg-white">
+    <section className="section-pad bg-ink-surface">
       <div className="container-content grid gap-14 lg:grid-cols-2 lg:gap-10">
-        {/* 방해 앱 — 흐림/회색 톤 */}
+        {/* 의지에 기대는 도구 — 흐림/무채색 */}
         <Reveal>
           <div className="flex flex-col items-center">
             <div className="grid w-full grid-cols-3 gap-3 md:gap-4">
-              {disturbFiles.map((file, i) => (
-                <div key={file} className="opacity-60 saturate-0 transition-all duration-300 hover:opacity-100 hover:saturate-100">
+              {willFiles.map((file, i) => (
+                <div
+                  key={file}
+                  className="p-2 opacity-50 saturate-0 transition-all duration-300 hover:opacity-80"
+                >
                   <PlaceholderImage
                     label={file}
                     width={200}
                     height={240}
-                    alt={`방해되는 앱 — ${t.apps.disturbLabels[i]}`}
+                    alt={`의지에 기대는 도구 — ${t.apps.willLabels[i]}`}
                   />
-                  <p className="mt-2 text-center text-[13px] text-gray-400 md:text-[14px]">
-                    {t.apps.disturbLabels[i]}
+                  <p className="mt-2 text-center text-[13px] leading-snug text-cream-dim md:text-[14px]">
+                    {t.apps.willLabels[i]}
                   </p>
                 </div>
               ))}
             </div>
-            <p className="mt-8 text-[22px] font-bold text-gray-400 md:text-[28px]">
-              {t.apps.disturbConclusion}
+            <p className="mt-8 text-center text-[20px] font-bold text-cream-dim md:text-[26px]">
+              {t.apps.willConclusion}
             </p>
           </div>
         </Reveal>
 
-        {/* 도움 앱 — 컬러 강조 */}
+        {/* 환경을 만드는 장치 — 토마토 강조 */}
         <Reveal delay={150}>
           <div className="flex flex-col items-center">
             <div className="grid w-full grid-cols-3 gap-3 md:gap-4">
-              {usefulFiles.map((file, i) => (
-                <div key={file} className="rounded-2xl ring-2 ring-brand/20 transition-shadow duration-300 hover:shadow-lg">
+              {envFiles.map((file, i) => (
+                <div
+                  key={file}
+                  className="rounded-2xl p-2 ring-1 ring-tomato/30 transition-shadow duration-300 hover:shadow-[0_8px_28px_rgba(255,72,52,0.18)]"
+                >
                   <PlaceholderImage
                     label={file}
                     width={200}
                     height={240}
-                    alt={`도움되는 앱 — ${t.apps.usefulLabels[i]}`}
+                    alt={`앵그리모티의 장치 — ${t.apps.envLabels[i]}`}
                   />
-                  <p className="mt-2 pb-1 text-center text-[13px] font-semibold text-brand-deep md:text-[14px]">
-                    {t.apps.usefulLabels[i]}
+                  <p className="mt-2 pb-1 text-center text-[13px] font-bold leading-snug text-tomato md:text-[14px]">
+                    {t.apps.envLabels[i]}
                   </p>
                 </div>
               ))}
             </div>
-            <p className="mt-8 text-[22px] font-bold text-gray-900 md:text-[28px]">
-              <span className="text-brand">{t.apps.usefulConclusion}</span>
+            <p className="mt-8 text-center text-[20px] font-bold text-cream md:text-[26px]">
+              {t.apps.envConclusion}
             </p>
           </div>
         </Reveal>

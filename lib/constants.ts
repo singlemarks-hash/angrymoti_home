@@ -1,8 +1,13 @@
-export const APP_STORE_URL = "https://apps.apple.com/kr/app/id6449270376";
+export const APP_STORE_URL =
+  "https://apps.apple.com/kr/app/%EC%95%B5%EA%B7%B8%EB%A6%AC%EB%AA%A8%ED%8B%B0/id6792526569";
 
-export const SNS = {
-  youtube: "https://www.youtube.com/@turning_korea",
-  instagram: "https://www.instagram.com/turning_korea",
+/** 안드로이드는 아직 출시 전 — 버튼은 노출하되 "준비 중" 안내를 띄운다. */
+export const PLAY_STORE_URL: string | null = null;
+
+/** SNS 계정 개설 전 — 아이콘은 노출하되 이동하지 않는다. */
+export const SNS: { youtube: string | null; instagram: string | null } = {
+  youtube: null,
+  instagram: null,
 };
 
 // 추후 실제 링크로 교체

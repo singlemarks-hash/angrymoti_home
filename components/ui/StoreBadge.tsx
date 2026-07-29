@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * 앱스토어 다운로드 배지.
@@ -55,15 +55,29 @@ const COPY = {
 
 export default function StoreBadge({ kind }: { kind: "ios" | "android" }) {
   const [hasOfficial, setHasOfficial] = useState(false);
+  const probeRef = useRef<HTMLImageElement>(null);
   const meta = COPY[kind];
   const src = `/assets/badges/${meta.file}`;
+
+  // 캐시에서 즉시 로드되면 onLoad가 하이드레이션 전에 끝나므로 마운트 시 한 번 더 확인한다
+  useEffect(() => {
+    const img = probeRef.current;
+    if (img?.complete && img.naturalWidth > 0) setHasOfficial(true);
+  }, []);
 
   return (
     <>
       {/* 원본 배지 존재 여부 확인용 프로브 — 있으면 아래에서 그 이미지를 쓴다 */}
       {!hasOfficial && (
         // eslint-disable-next-line @next/next/no-img-element
-        <img src={src} alt="" aria-hidden="true" onLoad={() => setHasOfficial(true)} className="hidden" />
+        <img
+          ref={probeRef}
+          src={src}
+          alt=""
+          aria-hidden="true"
+          onLoad={() => setHasOfficial(true)}
+          className="hidden"
+        />
       )}
 
       {hasOfficial ? (

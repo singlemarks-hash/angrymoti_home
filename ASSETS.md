@@ -27,7 +27,7 @@
 | `section_09_record.png` | `home/Section09Features.tsx` | 타임랩스 기록·연속 달성 화면 |
 | `press_01.png` ~ `press_08.png` | `home/Section10CTA.tsx` | 언론보도·파트너 로고 8종 |
 
-> 스크린샷 자리(`variant="screenshot"`)는 스마트폰 프레임 안에 들어갑니다. 세로 비율(대략 250×510) 이미지를 넣어주세요.
+> 앱 화면 자리에는 **디바이스 프레임이 없습니다.** 세로 이미지를 그대로 넣으면 원본 비율 그대로 표시되고, 잘리지 않습니다. iOS·Android 어느 쪽 목업을 쓰든 상관없어요. 가로 폭만 컴포넌트가 맞추고 높이는 이미지가 정합니다.
 
 ## 스토어 배지 (public/assets/badges/) — 출시 전 교체 권장
 

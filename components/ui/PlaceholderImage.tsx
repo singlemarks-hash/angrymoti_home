@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type Variant = "photo" | "screenshot" | "icon" | "logo";
 
@@ -35,51 +35,33 @@ export default function PlaceholderImage({
   fill = false,
 }: PlaceholderImageProps) {
   const [loaded, setLoaded] = useState(false);
+  const imgRef = useRef<HTMLImageElement>(null);
   const src = `/assets/${dir}/${label}`;
 
-  // width+height가 모두 있으면 비율만 고정 (좁은 컨테이너에서 왜곡 방지)
+  // 캐시에서 즉시 로드되면 onLoad가 하이드레이션 전에 끝나므로 마운트 시 한 번 더 확인한다
+  useEffect(() => {
+    const img = imgRef.current;
+    if (img?.complete && img.naturalWidth > 0) setLoaded(true);
+  }, []);
+
+  // screenshot: 로드 전에는 자리를 잡아두고, 로드 후에는 원본 세로 비율을 그대로 따른다
+  // (디바이스 프레임이 없으므로 어떤 비율의 세로 이미지를 넣어도 잘리지 않는다)
+  const freeRatio = variant === "screenshot" && loaded;
+
   const sizeStyle = fill
     ? { width: "100%", height: "100%" }
     : {
         width: width ? `${width}px` : "100%",
-        height: width && height ? undefined : height ? `${height}px` : undefined,
-        aspectRatio: width && height ? `${width} / ${height}` : undefined,
+        height: freeRatio || (width && height) ? undefined : height ? `${height}px` : undefined,
+        aspectRatio: !freeRatio && width && height ? `${width} / ${height}` : undefined,
       };
-
-  if (variant === "screenshot") {
-    return (
-      <div
-        className={`relative mx-auto overflow-hidden rounded-[36px] border-[6px] border-ink-line bg-ink-surface shadow-[0_16px_48px_rgba(0,0,0,0.5)] ${className}`}
-        style={{ ...sizeStyle, maxWidth: "100%" }}
-      >
-        {/* 노치 */}
-        <div
-          aria-hidden="true"
-          className={`absolute left-1/2 top-2 z-10 h-5 w-20 -translate-x-1/2 rounded-full bg-ink-line ${loaded ? "opacity-40" : ""}`}
-        />
-        {!loaded && (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 border-2 border-dashed border-ink-line bg-ink-surface p-4 text-center">
-            <span className="text-[13px] font-medium text-cream-dim">앱 화면</span>
-            <span className="break-all font-mono text-[12px] text-cream-dim">{label} 자리</span>
-          </div>
-        )}
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={src}
-          alt={alt ?? label}
-          onLoad={() => setLoaded(true)}
-          className={`h-full w-full object-cover ${loaded ? "opacity-100" : "opacity-0"}`}
-        />
-      </div>
-    );
-  }
 
   const variantBg =
     variant === "logo" ? "bg-ink-raised" : variant === "icon" ? "bg-tomato-soft" : "bg-ink-surface";
 
   return (
     <div
-      className={`relative overflow-hidden rounded-2xl ${className}`}
+      className={`relative mx-auto overflow-hidden rounded-2xl ${className}`}
       style={{ ...sizeStyle, maxWidth: "100%" }}
     >
       {!loaded && (
@@ -91,10 +73,13 @@ export default function PlaceholderImage({
       )}
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
+        ref={imgRef}
         src={src}
         alt={alt ?? label}
         onLoad={() => setLoaded(true)}
-        className={`h-full w-full object-cover ${loaded ? "opacity-100" : "opacity-0"}`}
+        className={`w-full ${freeRatio ? "h-auto" : "h-full object-cover"} ${
+          loaded ? "opacity-100" : "opacity-0"
+        }`}
       />
     </div>
   );

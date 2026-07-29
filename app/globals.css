@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white font-sans text-gray-900 antialiased;
+    word-break: keep-all;
+  }
+  :focus-visible {
+    outline: 2px solid #00c471;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-content {
+    @apply mx-auto w-full max-w-content px-4 md:px-6;
+  }
+  .section-pad {
+    @apply py-20 md:py-[120px];
+  }
+  .section-title {
+    @apply text-[26px] font-bold leading-[1.35] md:text-[36px] lg:text-[40px];
+  }
+  .section-sub {
+    @apply text-[17px] leading-[1.7] text-gray-600 md:text-[19px];
+  }
+  .eyebrow {
+    @apply mb-3 block text-[14px] font-semibold uppercase tracking-[0.14em] text-brand md:text-[15px];
+  }
+}
+
+/* 스크롤 진입 리빌 */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 마퀴 hover 일시정지 */
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee-track {
+    animation: none !important;
+  }
+  .marquee-viewport {
+    overflow-x: auto !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

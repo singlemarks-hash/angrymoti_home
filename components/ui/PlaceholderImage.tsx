@@ -44,9 +44,10 @@ export default function PlaceholderImage({
     if (img?.complete && img.naturalWidth > 0) setLoaded(true);
   }, []);
 
+  const isScreenshot = variant === "screenshot";
   // screenshot: 로드 전에는 자리를 잡아두고, 로드 후에는 원본 세로 비율을 그대로 따른다
-  // (디바이스 프레임이 없으므로 어떤 비율의 세로 이미지를 넣어도 잘리지 않는다)
-  const freeRatio = variant === "screenshot" && loaded;
+  // (기종을 특정하는 노치·홈버튼 없이 심플한 베젤만 두르므로 어떤 비율의 세로 이미지도 잘리지 않는다)
+  const freeRatio = isScreenshot && loaded;
 
   const sizeStyle = fill
     ? { width: "100%", height: "100%" }
@@ -56,6 +57,42 @@ export default function PlaceholderImage({
         aspectRatio: !freeRatio && width && height ? `${width} / ${height}` : undefined,
       };
 
+  const placeholder = (roundedClass: string, bgClass: string) =>
+    !loaded && (
+      <div
+        className={`absolute inset-0 flex flex-col items-center justify-center gap-1.5 ${roundedClass} border-2 border-dashed border-ink-line ${bgClass} p-3 text-center`}
+      >
+        <span className="break-all font-mono text-[12px] text-cream-dim">{label} 자리</span>
+      </div>
+    );
+
+  const img = (roundedClass: string) => (
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
+      ref={imgRef}
+      src={src}
+      alt={alt ?? label}
+      onLoad={() => setLoaded(true)}
+      className={`${roundedClass} w-full ${freeRatio ? "h-auto" : "h-full object-cover"} ${
+        loaded ? "opacity-100" : "opacity-0"
+      }`}
+    />
+  );
+
+  // 앱 화면 자리 — 기기를 특정하지 않는 심플한 블랙 베젤 (노치·홈버튼 없음)
+  if (isScreenshot) {
+    return (
+      <div className={`relative mx-auto ${className}`} style={{ ...sizeStyle, maxWidth: "100%" }}>
+        <div className="h-full w-full rounded-[30px] bg-[#151212] p-[9px] shadow-[0_18px_46px_rgba(0,0,0,0.45)] ring-1 ring-black/50">
+          <div className="relative h-full w-full overflow-hidden rounded-[22px] bg-ink-surface">
+            {placeholder("rounded-[22px]", "bg-ink-surface")}
+            {img("rounded-[22px]")}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   const variantBg =
     variant === "logo" ? "bg-ink-raised" : variant === "icon" ? "bg-tomato-soft" : "bg-ink-surface";
 
@@ -64,23 +101,8 @@ export default function PlaceholderImage({
       className={`relative mx-auto overflow-hidden rounded-2xl ${className}`}
       style={{ ...sizeStyle, maxWidth: "100%" }}
     >
-      {!loaded && (
-        <div
-          className={`absolute inset-0 flex flex-col items-center justify-center gap-1.5 rounded-2xl border-2 border-dashed border-ink-line ${variantBg} p-3 text-center`}
-        >
-          <span className="break-all font-mono text-[12px] text-cream-dim">{label} 자리</span>
-        </div>
-      )}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        ref={imgRef}
-        src={src}
-        alt={alt ?? label}
-        onLoad={() => setLoaded(true)}
-        className={`w-full ${freeRatio ? "h-auto" : "h-full object-cover"} ${
-          loaded ? "opacity-100" : "opacity-0"
-        }`}
-      />
+      {placeholder("rounded-2xl", variantBg)}
+      {img("")}
     </div>
   );
 }

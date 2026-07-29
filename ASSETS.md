@@ -14,7 +14,7 @@
 | `tool-1.png` | `home/Section04Apps.tsx` | 끄면 끝, 일반 알람 앱 |
 | `tool-2.png` | `home/Section04Apps.tsx` | 체크만 하면 끝, 투두 앱 |
 | `tool-3.png` | `home/Section04Apps.tsx` | 나만 아는 거짓말, 습관 앱 |
-| `moti-1.png` | `home/Section04Apps.tsx` | 타임랩스 인증 |
+| `moti-1.svg` ✅ 적용됨 | `home/Section04Apps.tsx` | 타임랩스 인증 — 공부하는 모티를 촬영 중인 벡터 일러스트 |
 | `moti-2.png` | `home/Section04Apps.tsx` | 자리비움 감지 |
 | `moti-3.png` | `home/Section04Apps.tsx` | 그룹 챌린지 |
 | `step_01.png` | `home/Section07HowToUse.tsx` | STEP 1 — 활동 예약(강도 선택) 화면 |

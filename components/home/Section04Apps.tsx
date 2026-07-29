@@ -5,7 +5,7 @@ import { getMessages } from "@/lib/i18n";
 export default function Section04Apps({ locale }: { locale: string }) {
   const t = getMessages(locale);
   const willFiles = ["tool-1.png", "tool-2.png", "tool-3.png"];
-  const envFiles = ["moti-1.png", "moti-2.png", "moti-3.png"];
+  const envFiles = ["moti-1.svg", "moti-2.png", "moti-3.png"];
 
   return (
     <section className="section-pad bg-ink-surface">
@@ -49,7 +49,7 @@ export default function Section04Apps({ locale }: { locale: string }) {
                   <PlaceholderImage
                     label={file}
                     width={200}
-                    height={240}
+                    height={200}
                     alt={`앵그리모티의 장치 — ${t.apps.envLabels[i]}`}
                   />
                   <p className="mt-2 pb-1 text-center text-[13px] font-bold leading-snug text-tomato md:text-[14px]">

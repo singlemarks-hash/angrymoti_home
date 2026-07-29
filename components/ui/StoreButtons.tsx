@@ -37,7 +37,7 @@ export default function StoreButtons({ locale, tone = "dark", className = "" }: 
 
   return (
     <div className={`flex flex-col items-center gap-3 ${className}`}>
-      <div className="flex flex-col items-center gap-3 sm:flex-row">
+      <div className="flex flex-row items-center gap-2.5 sm:gap-3">
         <a
           href={APP_STORE_URL}
           target="_blank"

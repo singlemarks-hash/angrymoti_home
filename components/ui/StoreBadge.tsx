@@ -13,6 +13,7 @@ import { useEffect, useRef, useState } from "react";
  *   public/assets/badges/google_play.png   ← Google Play 브랜드 페이지에서 내려받아 저장
  *
  * 파일을 넣으면 코드 수정 없이 원본 배지로 교체됩니다.
+ * 모바일(640px 미만)에서는 두 배지를 한 줄에 배치하기 위해 20% 축소해서 보여준다.
  */
 
 const APPLE_MARK =
@@ -20,7 +21,11 @@ const APPLE_MARK =
 
 function AppleMark() {
   return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className="h-[25px] w-[25px] shrink-0 fill-black">
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="h-[20px] w-[20px] shrink-0 fill-black sm:h-[25px] sm:w-[25px]"
+    >
       <path d={APPLE_MARK} />
     </svg>
   );
@@ -29,7 +34,7 @@ function AppleMark() {
 /** Google Play 삼각형 — 좌측 스파인(파랑) 기준으로 상(초록)·우(노랑)·하(빨강) 4면 */
 function PlayMark() {
   return (
-    <svg viewBox="0 0 500 512" aria-hidden="true" className="h-[23px] w-[23px] shrink-0">
+    <svg viewBox="0 0 500 512" aria-hidden="true" className="h-[18px] w-[18px] shrink-0 sm:h-[23px] sm:w-[23px]">
       <path d="M30 10 L300 256 L30 502 Z" fill="#00A0FF" />
       <path d="M30 10 L362 196.5 L300 256 Z" fill="#00E676" />
       <path d="M362 196.5 L468 256 L362 315.5 L300 256 Z" fill="#FFCE00" />
@@ -43,13 +48,13 @@ const COPY = {
     file: "app_store.svg",
     top: "Download on the",
     bottom: "App Store",
-    topClass: "text-[10px] font-normal tracking-[0.01em]",
+    topClass: "text-[8px] font-normal tracking-[0.01em] sm:text-[10px]",
   },
   android: {
     file: "google_play.png",
     top: "GET IT ON",
     bottom: "Google Play",
-    topClass: "text-[9px] font-medium uppercase tracking-[0.14em]",
+    topClass: "text-[7px] font-medium uppercase tracking-[0.1em] sm:text-[9px] sm:tracking-[0.14em]",
   },
 } as const;
 
@@ -86,14 +91,14 @@ export default function StoreBadge({ kind }: { kind: "ios" | "android" }) {
           src={src}
           alt=""
           aria-hidden="true"
-          className="h-[54px] w-auto transition-opacity group-hover:opacity-90"
+          className="h-[43px] w-auto transition-opacity group-hover:opacity-90 sm:h-[54px]"
         />
       ) : (
-        <span className="inline-flex h-[54px] items-center gap-2.5 whitespace-nowrap rounded-xl bg-white px-4 transition-opacity group-hover:opacity-90">
+        <span className="inline-flex h-[43px] items-center gap-2 whitespace-nowrap rounded-xl bg-white px-[13px] transition-opacity group-hover:opacity-90 sm:h-[54px] sm:gap-2.5 sm:px-4">
           {kind === "ios" ? <AppleMark /> : <PlayMark />}
           <span className="flex flex-col items-start leading-none">
             <span className={`text-black/75 ${meta.topClass}`}>{meta.top}</span>
-            <span className="mt-[3px] text-[18px] font-semibold tracking-[-0.02em] text-black">
+            <span className="mt-[2px] text-[14px] font-semibold tracking-[-0.02em] text-black sm:mt-[3px] sm:text-[18px]">
               {meta.bottom}
             </span>
           </span>

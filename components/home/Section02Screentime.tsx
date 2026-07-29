@@ -16,7 +16,7 @@ export default function Section02Screentime({ locale }: { locale: string }) {
           <h2 className="section-title text-center">{t.screentime.title}</h2>
         </Reveal>
 
-        <div className="mt-12 grid items-center gap-10 md:mt-16 lg:grid-cols-3">
+        <div className="mt-8 grid items-center gap-10 md:mt-12 lg:grid-cols-3">
           <Reveal delay={100} className="order-2 lg:order-1">
             <div className="flex items-center justify-center gap-3 lg:flex-col lg:items-start">
               <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-jade-soft text-jade">

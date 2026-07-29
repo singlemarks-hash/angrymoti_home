@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Menu } from "lucide-react";
 import { APP_STORE_URL, navLinks } from "@/lib/constants";
 import { getMessages } from "@/lib/i18n";
+import BrandLogo from "@/components/ui/BrandLogo";
 import MobileMenu from "./MobileMenu";
 
 /* TODO: 교체 → /assets/svg/menu.svg (햄버거 아이콘) */
@@ -32,14 +33,8 @@ export default function Header({ locale }: { locale: string }) {
         }`}
       >
         <div className="container-content flex h-16 items-center justify-between md:h-[72px]">
-          {/* TODO: 교체 → 앵그리모티 로고 이미지 */}
-          <Link
-            href={`/${locale}`}
-            className="flex items-center gap-2 text-[19px] font-extrabold tracking-tight text-cream md:text-[21px]"
-            aria-label="앵그리모티 홈"
-          >
-            <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-tomato" />
-            앵그리모티
+          <Link href={`/${locale}`} className="group flex items-center" aria-label="앵그리모티 홈">
+            <BrandLogo />
           </Link>
 
           <nav aria-label="주 메뉴" className="hidden items-center gap-8 lg:flex">

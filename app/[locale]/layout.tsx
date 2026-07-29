@@ -47,6 +47,14 @@ export default async function LocaleLayout({
           crossOrigin="anonymous"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
+        {/* 로고 워드마크 폴백 전용 서체 — 실제 로고 파일(public/assets/brand/wordmark.svg)이
+            들어오면 쓰이지 않는다 */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700&display=swap"
+        />
       </head>
       <body>
         <Header locale={locale} />

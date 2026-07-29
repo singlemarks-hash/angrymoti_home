@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { X } from "lucide-react";
 import { APP_STORE_URL, navLinks } from "@/lib/constants";
 import { getMessages } from "@/lib/i18n";
+import BrandLogo from "@/components/ui/BrandLogo";
 
 interface MobileMenuProps {
   open: boolean;
@@ -39,13 +40,8 @@ export default function MobileMenu({ open, onClose, locale }: MobileMenuProps) {
       }`}
     >
       <div className="container-content flex h-16 items-center justify-between">
-        <Link
-          href={`/${locale}`}
-          onClick={onClose}
-          className="flex items-center gap-2 text-[19px] font-extrabold tracking-tight text-cream"
-        >
-          <span aria-hidden="true" className="h-2.5 w-2.5 rounded-full bg-tomato" />
-          앵그리모티
+        <Link href={`/${locale}`} onClick={onClose} className="group flex items-center">
+          <BrandLogo />
         </Link>
         <button
           type="button"

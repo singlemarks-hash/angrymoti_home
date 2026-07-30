@@ -7,7 +7,7 @@
 
 | 파일명 | 사용 위치 | 담아야 할 내용 |
 |---|---|---|
-| `step_03.png` ✅ 적용됨 | `home/Section01Hero.tsx` (PC·태블릿·모바일 공통), `home/Section07HowToUse.tsx` STEP 3 | 알람 울림·촬영 준비 화면 — 히어로와 STEP 3에서 같은 파일을 공유 |
+| `hero_tb.png` ✅ 적용됨 | `home/Section01Hero.tsx` (PC·태블릿·모바일 공통) | 히어로 — 알람 울림·촬영 준비 화면 (step_03.png와 같은 내용의 별도 파일) |
 | `section_02_alarm.png` | `home/Section02Screentime.tsx` | 아침 알람이 여러 개 울리는 화면 |
 | `tool-1.svg` ✅ 적용됨 | `home/Section04Apps.tsx` | 끄면 끝, 일반 알람 앱 — 알람 끄고 자는 모티 일러스트 |
 | `tool-2.svg` ✅ 적용됨 | `home/Section04Apps.tsx` | 체크만 하면 끝, 투두 앱 — 대충 체크하는 모티 일러스트 |
@@ -17,7 +17,7 @@
 | `moti-3.svg` ✅ 적용됨 | `home/Section04Apps.tsx` | 그룹 챌린지 — 시상대에서 트로피 든 모티와 순위 축하 일러스트 |
 | `step_01.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 1 — 활동 예약(강도 선택) 화면 |
 | `step_02.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 2 — 알람 울리는 화면 |
-| `step_03.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 3 — 위 히어로 항목과 같은 파일 (알람 울림·촬영 준비 화면) |
+| `step_03.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 3 — 타임랩스 촬영 중 화면 |
 | `step_04.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 4 — 완주 결과·타임랩스 화면 |
 | `moti_angry.png` | `home/MotiSlider.tsx` | 화난 표정의 모티 (슬라이더 왼쪽 상태) |
 | `moti_happy.png` | `home/MotiSlider.tsx` | 기뻐하는 표정의 모티 (오른쪽 상태) |

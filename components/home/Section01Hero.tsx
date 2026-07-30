@@ -53,7 +53,7 @@ export default function Section01Hero({ locale }: { locale: string }) {
             <div className="relative">
               <div className="hidden lg:block">
                 <PlaceholderImage
-                  label="step_03.png"
+                  label="hero_tb.png"
                   variant="screenshot"
                   width={280}
                   height={570}
@@ -62,7 +62,7 @@ export default function Section01Hero({ locale }: { locale: string }) {
               </div>
               <div className="hidden md:block lg:hidden">
                 <PlaceholderImage
-                  label="step_03.png"
+                  label="hero_tb.png"
                   variant="screenshot"
                   width={260}
                   height={530}
@@ -71,7 +71,7 @@ export default function Section01Hero({ locale }: { locale: string }) {
               </div>
               <div className="md:hidden">
                 <PlaceholderImage
-                  label="step_03.png"
+                  label="hero_tb.png"
                   variant="screenshot"
                   width={230}
                   height={470}

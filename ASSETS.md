@@ -7,9 +7,7 @@
 
 | 파일명 | 사용 위치 | 담아야 할 내용 |
 |---|---|---|
-| `hero_pc.png` | `home/Section01Hero.tsx` | 히어로 — 알람이 울리는 화면 (≥1080px) |
-| `hero_tb.png` | `home/Section01Hero.tsx` | 히어로 (태블릿 768–1079px) |
-| `hero_mb.png` | `home/Section01Hero.tsx` | 히어로 (모바일 <768px) |
+| `step_03.png` ✅ 적용됨 | `home/Section01Hero.tsx` (PC·태블릿·모바일 공통), `home/Section07HowToUse.tsx` STEP 3 | 알람 울림·촬영 준비 화면 — 히어로와 STEP 3에서 같은 파일을 공유 |
 | `section_02_alarm.png` | `home/Section02Screentime.tsx` | 아침 알람이 여러 개 울리는 화면 |
 | `tool-1.png` | `home/Section04Apps.tsx` | 끄면 끝, 일반 알람 앱 |
 | `tool-2.png` | `home/Section04Apps.tsx` | 체크만 하면 끝, 투두 앱 |
@@ -17,10 +15,10 @@
 | `moti-1.svg` ✅ 적용됨 | `home/Section04Apps.tsx` | 타임랩스 인증 — 공부하는 모티를 촬영 중인 벡터 일러스트 |
 | `moti-2.svg` ✅ 적용됨 | `home/Section04Apps.tsx` | 자리비움 감지 — 자리를 비운 책상에 경고 삼각형이 뜨는 일러스트 |
 | `moti-3.svg` ✅ 적용됨 | `home/Section04Apps.tsx` | 그룹 챌린지 — 시상대에서 트로피 든 모티와 순위 축하 일러스트 |
-| `step_01.png` | `home/Section07HowToUse.tsx` | STEP 1 — 활동 예약(강도 선택) 화면 |
-| `step_02.png` | `home/Section07HowToUse.tsx` | STEP 2 — 알람 울리는 화면 |
-| `step_03.png` | `home/Section07HowToUse.tsx` | STEP 3 — 타임랩스 촬영 중 화면 |
-| `step_04.png` | `home/Section07HowToUse.tsx` | STEP 4 — 완주 결과·타임랩스 화면 |
+| `step_01.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 1 — 활동 예약(강도 선택) 화면 |
+| `step_02.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 2 — 알람 울리는 화면 |
+| `step_03.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 3 — 위 히어로 항목과 같은 파일 (알람 울림·촬영 준비 화면) |
+| `step_04.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 4 — 완주 결과·타임랩스 화면 |
 | `moti_angry.png` | `home/MotiSlider.tsx` | 화난 표정의 모티 (슬라이더 왼쪽 상태) |
 | `moti_happy.png` | `home/MotiSlider.tsx` | 기뻐하는 표정의 모티 (오른쪽 상태) |
 | `section_09_group.png` | `home/Section09Features.tsx` | 그룹 챌린지 랭킹 화면 |

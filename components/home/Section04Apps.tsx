@@ -5,7 +5,7 @@ import { getMessages } from "@/lib/i18n";
 export default function Section04Apps({ locale }: { locale: string }) {
   const t = getMessages(locale);
   const willFiles = ["tool-1.png", "tool-2.png", "tool-3.png"];
-  const envFiles = ["moti-1.svg", "moti-2.png", "moti-3.png"];
+  const envFiles = ["moti-1.svg", "moti-2.svg", "moti-3.svg"];
 
   return (
     <section className="section-pad bg-ink-surface">

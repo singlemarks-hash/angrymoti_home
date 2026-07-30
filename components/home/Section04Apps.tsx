@@ -4,7 +4,7 @@ import { getMessages } from "@/lib/i18n";
 
 export default function Section04Apps({ locale }: { locale: string }) {
   const t = getMessages(locale);
-  const willFiles = ["tool-1.png", "tool-2.png", "tool-3.png"];
+  const willFiles = ["tool-1.svg", "tool-2.svg", "tool-3.svg"];
   const envFiles = ["moti-1.svg", "moti-2.svg", "moti-3.svg"];
 
   return (
@@ -22,7 +22,7 @@ export default function Section04Apps({ locale }: { locale: string }) {
                   <PlaceholderImage
                     label={file}
                     width={200}
-                    height={240}
+                    height={200}
                     alt={`의지에 기대는 도구 — ${t.apps.willLabels[i]}`}
                   />
                   <p className="mt-2 text-center text-[13px] leading-snug text-cream-dim md:text-[14px]">

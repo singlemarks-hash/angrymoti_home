@@ -39,9 +39,9 @@ export default function Section07HowToUse({ locale }: { locale: string }) {
                       <p className="mt-4 text-[15px] leading-[1.75] text-cream-muted md:text-[17px]">
                         {step.body}
                       </p>
-                      {"bubble" in step && step.bubble && (
-                        <p className="mt-5 inline-block rounded-2xl rounded-bl-sm border border-tomato/30 bg-tomato-soft px-5 py-3 text-[14px] font-bold text-tomato md:text-[15px]">
-                          “{step.bubble}”
+                      {"note" in step && step.note && (
+                        <p className="mt-3 text-[13px] leading-relaxed text-cream-dim md:text-[14px]">
+                          {step.note}
                         </p>
                       )}
                     </div>

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ComingSoon from "@/components/ui/ComingSoon";
 
-export const metadata: Metadata = { title: "지원 및 문의 - 터닝(Turning)" };
+export const metadata: Metadata = { title: "지원 및 문의 - 앵그리모티" };
 
 export default async function ContactPage({
   params,

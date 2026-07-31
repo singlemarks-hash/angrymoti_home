@@ -7,15 +7,15 @@ export default function Section10CTA({ locale }: { locale: string }) {
   const t = getMessages(locale);
 
   return (
-    <section className="section-pad relative overflow-hidden bg-[linear-gradient(150deg,#FF5A45_0%,#F0402C_28%,#B32316_62%,#3A0D08_100%)] text-white">
+    <section className="section-pad relative overflow-hidden bg-[linear-gradient(150deg,#3A0D08_0%,#B32316_38%,#F0402C_72%,#FF5A45_100%)] text-white">
       {/* 부드러운 광원 — 그라디언트에 깊이를 준다 */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -right-40 top-0 h-[560px] w-[560px] rounded-full bg-amber/20 blur-[140px]"
+        className="pointer-events-none absolute -left-32 top-0 h-[480px] w-[480px] rounded-full bg-ink/40 blur-[130px]"
       />
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute -left-32 bottom-0 h-[480px] w-[480px] rounded-full bg-ink/40 blur-[130px]"
+        className="pointer-events-none absolute -right-40 bottom-0 h-[560px] w-[560px] rounded-full bg-amber/20 blur-[140px]"
       />
 
       <div className="container-content relative text-center">

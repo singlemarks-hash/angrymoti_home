@@ -79,7 +79,7 @@ export default function PlaceholderImage({
       src={src}
       alt={alt ?? label}
       onLoad={() => setLoaded(true)}
-      className={`${roundedClass} w-full ${freeRatio ? "h-auto" : "h-full object-cover"} ${
+      className={`${roundedClass} block w-full ${freeRatio ? "h-auto" : "h-full object-cover"} ${
         loaded ? "opacity-100" : "opacity-0"
       }`}
     />

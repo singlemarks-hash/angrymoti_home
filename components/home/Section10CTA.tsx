@@ -7,7 +7,7 @@ export default function Section10CTA({ locale }: { locale: string }) {
   const t = getMessages(locale);
 
   return (
-    <section className="section-pad relative overflow-hidden bg-[linear-gradient(180deg,#3A0D08_0%,#B32316_38%,#F0402C_72%,#FF5A45_100%)] text-white">
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#3A0D08_0%,#B32316_38%,#F0402C_72%,#FF5A45_100%)] pt-20 text-white md:pt-[120px]">
       <div className="container-content relative text-center">
         <Reveal>
           <h2 className="text-[28px] font-extrabold tracking-[-0.01em] md:text-[40px]">
@@ -21,20 +21,19 @@ export default function Section10CTA({ locale }: { locale: string }) {
         <Reveal delay={150} className="mt-8">
           <StoreButtons locale={locale} tone="brand" />
         </Reveal>
-
-        {/* 목업 이미지 자리 — 어떤 비율이든 원본 그대로 표시된다.
-            이미지 자체가 투명 여백을 품고 있어 컴포넌트 간격은 좁게 잡는다 */}
-        <Reveal delay={300} className="mt-2 md:mt-4">
-          <PlaceholderImage
-            label="cta_mockup.png"
-            width={1000}
-            height={729}
-            fitOriginal
-            alt="앵그리모티 앱 화면 목업"
-            className="drop-shadow-[0_24px_60px_rgba(0,0,0,0.35)]"
-          />
-        </Reveal>
       </div>
+
+      {/* 목업 이미지 — 이미지 자체 하단에 여백이 없으므로 섹션 바닥에 그대로 붙인다 (하단 패딩 없음) */}
+      <Reveal delay={300} className="mt-2 md:mt-4">
+        <PlaceholderImage
+          label="cta_mockup.png"
+          width={1000}
+          height={729}
+          fitOriginal
+          alt="앵그리모티 앱 화면 목업"
+          className="mx-auto drop-shadow-[0_24px_60px_rgba(0,0,0,0.35)]"
+        />
+      </Reveal>
     </section>
   );
 }

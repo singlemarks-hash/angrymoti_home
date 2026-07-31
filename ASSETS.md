@@ -23,7 +23,7 @@
 | `moti_happy.png` | `home/MotiSlider.tsx` | 기뻐하는 표정의 모티 (오른쪽 상태) |
 | `section_09_group.png` | `home/Section09Features.tsx` | 그룹 챌린지 랭킹 화면 |
 | `section_09_record.png` | `home/Section09Features.tsx` | 타임랩스 기록·연속 달성 화면 |
-| `cta_mockup.png` ✅ 적용됨 | `home/Section10CTA.tsx` | 최종 CTA 그라디언트 위 목업 — 기록 화면 + 화난 모티 (1830×1334, 팔레트 PNG 115KB로 최적화. PNG·SVG 두 버전 중 PNG가 3배 가벼워 채택 — SVG는 래스터 3장이 임베드된 사실상 비트맵이었음) |
+| `cta_mockup.png` ✅ 적용됨 | `home/Section10CTA.tsx` | 최종 CTA 그라디언트 위 목업 — 기록 화면 + 화난 모티 v2 (1830×1334, 팔레트 PNG 205KB로 최적화). 이미지 하단이 섹션 하단과 여백 없이 붙도록 섹션 하단 패딩을 제거했으니, 교체 시 하단에 투명 여백이 없는 이미지를 넣을 것 |
 
 > 앱 화면 자리는 **기종을 특정하지 않는 심플한 블랙 베젤**로 감쌉니다 (노치·홈버튼 없음 — 배경과 분리감을 주기 위한 최소한의 프레임). 세로 이미지를 넣으면 베젤 안에서 원본 비율 그대로 표시되고 잘리지 않습니다. iOS·Android 어느 쪽 스크린샷을 쓰든 상관없어요. 가로 폭만 컴포넌트가 맞추고 높이는 이미지가 정합니다.
 

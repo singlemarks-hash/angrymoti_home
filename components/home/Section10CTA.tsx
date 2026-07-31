@@ -22,12 +22,13 @@ export default function Section10CTA({ locale }: { locale: string }) {
           <StoreButtons locale={locale} tone="brand" />
         </Reveal>
 
-        {/* 목업 이미지 자리 — 어떤 비율이든 원본 그대로 표시된다 */}
-        <Reveal delay={300} className="mt-14 md:mt-20">
+        {/* 목업 이미지 자리 — 어떤 비율이든 원본 그대로 표시된다.
+            이미지 자체가 투명 여백을 품고 있어 컴포넌트 간격은 좁게 잡는다 */}
+        <Reveal delay={300} className="mt-2 md:mt-4">
           <PlaceholderImage
             label="cta_mockup.png"
             width={1000}
-            height={520}
+            height={729}
             fitOriginal
             alt="앵그리모티 앱 화면 목업"
             className="drop-shadow-[0_24px_60px_rgba(0,0,0,0.35)]"

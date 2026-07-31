@@ -16,6 +16,11 @@ interface PlaceholderImageProps {
   className?: string;
   /** true면 부모 크기를 꽉 채움 (width/height 무시) */
   fill?: boolean;
+  /**
+   * true면 로드 후 원본 비율을 그대로 따른다 (베젤 없음).
+   * 가로 배너든 세로 이미지든 어떤 비율을 넣어도 잘리지 않는다.
+   */
+  fitOriginal?: boolean;
 }
 
 /**
@@ -33,6 +38,7 @@ export default function PlaceholderImage({
   alt,
   className = "",
   fill = false,
+  fitOriginal = false,
 }: PlaceholderImageProps) {
   const [loaded, setLoaded] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
@@ -47,7 +53,7 @@ export default function PlaceholderImage({
   const isScreenshot = variant === "screenshot";
   // screenshot: 로드 전에는 자리를 잡아두고, 로드 후에는 원본 세로 비율을 그대로 따른다
   // (기종을 특정하는 노치·홈버튼 없이 심플한 베젤만 두르므로 어떤 비율의 세로 이미지도 잘리지 않는다)
-  const freeRatio = isScreenshot && loaded;
+  const freeRatio = (isScreenshot || fitOriginal) && loaded;
 
   const sizeStyle = fill
     ? { width: "100%", height: "100%" }

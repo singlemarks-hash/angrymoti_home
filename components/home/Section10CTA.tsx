@@ -5,10 +5,19 @@ import { getMessages } from "@/lib/i18n";
 
 export default function Section10CTA({ locale }: { locale: string }) {
   const t = getMessages(locale);
-  const logos = Array.from({ length: 8 }, (_, i) => `press_0${i + 1}.png`);
 
   return (
-    <section className="section-pad relative overflow-hidden bg-tomato text-white">
+    <section className="section-pad relative overflow-hidden bg-[linear-gradient(150deg,#FF5A45_0%,#F0402C_28%,#B32316_62%,#3A0D08_100%)] text-white">
+      {/* 부드러운 광원 — 그라디언트에 깊이를 준다 */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-40 top-0 h-[560px] w-[560px] rounded-full bg-amber/20 blur-[140px]"
+      />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-32 bottom-0 h-[480px] w-[480px] rounded-full bg-ink/40 blur-[130px]"
+      />
+
       <div className="container-content relative text-center">
         <Reveal>
           <h2 className="text-[28px] font-extrabold tracking-[-0.01em] md:text-[40px]">
@@ -23,20 +32,16 @@ export default function Section10CTA({ locale }: { locale: string }) {
           <StoreButtons locale={locale} tone="brand" />
         </Reveal>
 
-        <Reveal delay={300} className="mt-16 md:mt-20">
-          <ul className="grid grid-cols-4 gap-3 md:gap-5">
-            {logos.map((file) => (
-              <li key={file} className="opacity-60 grayscale">
-                <PlaceholderImage
-                  label={file}
-                  variant="logo"
-                  width={260}
-                  height={90}
-                  alt={`언론보도 로고 ${file}`}
-                />
-              </li>
-            ))}
-          </ul>
+        {/* 목업 이미지 자리 — 어떤 비율이든 원본 그대로 표시된다 */}
+        <Reveal delay={300} className="mt-14 md:mt-20">
+          <PlaceholderImage
+            label="cta_mockup.png"
+            width={1000}
+            height={520}
+            fitOriginal
+            alt="앵그리모티 앱 화면 목업"
+            className="drop-shadow-[0_24px_60px_rgba(0,0,0,0.35)]"
+          />
         </Reveal>
       </div>
     </section>

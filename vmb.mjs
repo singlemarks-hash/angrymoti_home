@@ -1,0 +1,14 @@
+import { chromium } from "playwright";
+const outDir = "/tmp/claude-0/-home-user-introduction/d79c2c83-4f4d-5896-87f9-3ae2ad86cd7a/scratchpad";
+const browser = await chromium.launch({ executablePath: "/opt/pw-browsers/chromium" });
+const mb = await browser.newPage({ viewport: { width: 375, height: 900 } });
+await mb.goto("http://localhost:3200/ko", { waitUntil: "load", timeout: 30000 }).catch(()=>{});
+await mb.waitForFunction(() => document.querySelectorAll(".reveal").length > 0, { timeout: 15000 }).catch(()=>{});
+const s10m = mb.locator("section:nth-of-type(10)").first();
+await s10m.scrollIntoViewIfNeeded(); await mb.waitForTimeout(1600);
+await s10m.screenshot({ path: `${outDir}/cta_v3_mb.png` });
+const box = await s10m.boundingBox();
+const img = mb.locator("section:nth-of-type(10) img").first();
+const ibox = await img.boundingBox();
+console.log("mobile gap:", box.y + box.height - (ibox.y + ibox.height));
+await browser.close();

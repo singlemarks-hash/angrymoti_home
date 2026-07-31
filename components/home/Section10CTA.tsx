@@ -7,7 +7,7 @@ export default function Section10CTA({ locale }: { locale: string }) {
   const t = getMessages(locale);
 
   return (
-    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#3A0D08_0%,#B32316_38%,#F0402C_72%,#FF5A45_100%)] pt-20 text-white md:pt-[120px]">
+    <section className="relative overflow-hidden bg-[linear-gradient(180deg,#150808_0%,#A22121_100%)] pt-20 text-white md:pt-[120px]">
       <div className="container-content relative text-center">
         <Reveal>
           <h2 className="text-[28px] font-extrabold tracking-[-0.01em] md:text-[40px]">

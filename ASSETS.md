@@ -21,7 +21,7 @@
 | `step_04.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 4 — 완주 결과·타임랩스 화면 |
 | `moti_angry.png` | `home/MotiSlider.tsx` | 화난 표정의 모티 (슬라이더 왼쪽 상태) |
 | `moti_happy.png` | `home/MotiSlider.tsx` | 기뻐하는 표정의 모티 (오른쪽 상태) |
-| `section_09_group.png` | `home/Section09Features.tsx` | 그룹 챌린지 랭킹 화면 |
+| `section_09_group.png` ✅ 적용됨 | `home/Section09Features.tsx` | 그룹 챌린지 실시간 랭킹 화면 (867×1878, 팔레트 PNG 117KB로 최적화) |
 | `section_09_record.png` | `home/Section09Features.tsx` | 타임랩스 기록·연속 달성 화면 |
 | `cta_mockup.png` ✅ 적용됨 | `home/Section10CTA.tsx` | 최종 CTA 그라디언트 위 목업 — 기록 화면 + 화난 모티 v3 (1830×1334, 팔레트 PNG 203KB로 최적화). 이미지 하단이 섹션 하단과 여백 없이 붙도록 섹션 하단 패딩을 제거했으니, 교체 시 하단에 투명 여백이 없는 이미지를 넣을 것. 배경 그라디언트는 피그마 값(0% #150808 → 100% #A22121, 수직) 적용 |
 

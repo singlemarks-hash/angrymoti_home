@@ -14,12 +14,13 @@
     "androidSoon": "안드로이드 버전은 준비 중이에요. 조금만 기다려 주세요."
   },
   "screentime": {
-    "title": "작심삼일러의 평균 아침 알람",
-    "left": "당신은 첫 알람에 일어나고 있나요?",
-    "count": 5,
-    "countSuffix": "개",
-    "countPrefix": "약",
-    "right": "아니면 전부 끄고 다시 잠드나요?"
+    "title": "결심성공률",
+    "citation": "*UCLA 의과대학 연구팀 결과",
+    "left": "혼자만의 의지로 해결하고 있나요?",
+    "count": 8,
+    "countSuffix": "%",
+    "countPrefix": "",
+    "right": "아니면 할 수밖에 없는 환경을 만들어 보고 있나요?"
   },
   "escape": {
     "title1": "끄면 그만인 알람, 체크뿐인 습관앱에서 벗어나",

@@ -8,6 +8,12 @@ import { getMessages } from "@/lib/i18n";
 
 export default function Section02Screentime({ locale }: { locale: string }) {
   const t = getMessages(locale);
+  // 균형 잡힌 줄바꿈 — "~환경을" 뒤에서 끊어 두 줄 길이를 맞춘다
+  const breakAt = "환경을";
+  const breakIdx = t.screentime.right.indexOf(breakAt);
+  const rightFirst =
+    breakIdx >= 0 ? t.screentime.right.slice(0, breakIdx + breakAt.length) : t.screentime.right;
+  const rightRest = breakIdx >= 0 ? t.screentime.right.slice(breakIdx + breakAt.length).trim() : "";
 
   return (
     <section className="section-pad bg-ink-surface">
@@ -65,7 +71,9 @@ export default function Section02Screentime({ locale }: { locale: string }) {
                 <Plus className="h-5 w-5" aria-hidden="true" />
               </span>
               <p className="text-[17px] font-medium text-cream-muted md:text-[19px] lg:text-right">
-                {t.screentime.right}
+                {rightFirst}
+                <br />
+                {rightRest}
               </p>
             </div>
           </Reveal>

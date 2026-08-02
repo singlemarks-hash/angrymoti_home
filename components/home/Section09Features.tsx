@@ -1,7 +1,6 @@
 import { Check } from "lucide-react";
 import PlaceholderImage from "@/components/ui/PlaceholderImage";
 import Reveal from "@/components/ui/Reveal";
-import MotiSlider from "./MotiSlider";
 import { getMessages } from "@/lib/i18n";
 
 /* TODO: 교체 → /assets/svg/check_tomato.svg, check_amber.svg, check_jade.svg */
@@ -40,24 +39,8 @@ export default function Section09Features({ locale }: { locale: string }) {
           <h2 className="section-title mt-3">{t.title}</h2>
         </Reveal>
 
-        {/* 9-1 미루고 싶을 때 — 인터랙티브 슬라이더 */}
-        <div className="mt-16 grid items-center gap-10 md:mt-24 lg:grid-cols-2 lg:gap-20">
-          <Reveal>
-            <FeatureBadge color="tomato" label={t.f1.badge} />
-            <h3 className="mt-4 text-[22px] font-bold leading-snug text-cream md:text-[28px]">
-              {t.f1.subtitle}
-            </h3>
-            <p className="mt-4 text-[15px] leading-[1.75] text-cream-muted md:text-[17px]">
-              {t.f1.body}
-            </p>
-          </Reveal>
-          <Reveal delay={150}>
-            <MotiSlider locale={locale} />
-          </Reveal>
-        </div>
-
         {/* 9-2 혼자는 힘들 때 */}
-        <div className="mt-20 grid items-center gap-10 md:mt-28 lg:grid-cols-2 lg:gap-20">
+        <div className="mt-16 grid items-center gap-10 md:mt-24 lg:grid-cols-2 lg:gap-20">
           <Reveal className="lg:order-2">
             <FeatureBadge color="amber" label={t.f2.badge} />
             <h3 className="mt-4 text-[22px] font-bold leading-snug text-cream md:text-[28px]">

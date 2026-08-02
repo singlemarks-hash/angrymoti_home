@@ -19,8 +19,8 @@
 | `step_02.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 2 — 알람 울리는 화면 |
 | `step_03.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 3 — 타임랩스 촬영 중 화면 |
 | `step_04.png` ✅ 적용됨 | `home/Section07HowToUse.tsx` | STEP 4 — 완주 결과·타임랩스 화면 |
-| `moti_angry.png` | `home/MotiSlider.tsx` | 화난 표정의 모티 (슬라이더 왼쪽 상태) |
-| `moti_happy.png` | `home/MotiSlider.tsx` | 기뻐하는 표정의 모티 (오른쪽 상태) |
+| ~~`moti_angry.png`~~ | — | 사용하지 않음. 모티 슬라이더 블록(섹션 9-1)이 제거되면서 함께 정리됨 |
+| ~~`moti_happy.png`~~ | — | 사용하지 않음 (위와 동일) |
 | `section_09_group.png` ✅ 적용됨 | `home/Section09Features.tsx` | 그룹 챌린지 실시간 랭킹 화면 (867×1878, 팔레트 PNG 117KB로 최적화) |
 | `section_09_record.png` ✅ 적용됨 | `home/Section09Features.tsx` | 완주 결과·타임랩스 미리보기 화면 (867×1878, 팔레트 PNG 209KB로 최적화) |
 | `cta_mockup.png` ✅ 적용됨 | `home/Section10CTA.tsx` | 최종 CTA 그라디언트 위 목업 — 기록 화면 + 화난 모티 v3 (1830×1334, 팔레트 PNG 203KB로 최적화). 이미지 하단이 섹션 하단과 여백 없이 붙도록 섹션 하단 패딩을 제거했으니, 교체 시 하단에 투명 여백이 없는 이미지를 넣을 것. 배경 그라디언트는 피그마 값(0% #150808 → 100% #A22121, 수직) 적용 |

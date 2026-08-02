@@ -1,6 +1,6 @@
 import { Plus, X } from "lucide-react";
 import CountUp from "@/components/ui/CountUp";
-import PlaceholderImage from "@/components/ui/PlaceholderImage";
+import LottiePlayer from "@/components/ui/LottiePlayer";
 import Reveal from "@/components/ui/Reveal";
 import { getMessages } from "@/lib/i18n";
 
@@ -45,23 +45,14 @@ export default function Section02Screentime({ locale }: { locale: string }) {
               {t.screentime.citation && (
                 <p className="mt-2 text-[13px] text-cream-dim">{t.screentime.citation}</p>
               )}
-              <div className="relative mt-8">
-                <div
-                  aria-hidden="true"
-                  className="absolute -left-6 -top-6 h-16 w-16 rounded-full border-[6px] border-ink-line border-t-tomato"
-                />
-                <div
-                  aria-hidden="true"
-                  className="absolute -bottom-4 -right-7 h-12 w-12 rounded-full bg-tomato-soft"
-                />
-                <PlaceholderImage
-                  label="section_02_alarm.png"
-                  variant="screenshot"
-                  width={230}
-                  height={470}
-                  alt="새해 결심이 흔들리는 순간을 보여주는 화면"
-                />
-              </div>
+              {/* 원본 캔버스(1000×900)에 여백이 많아 viewBox로 콘텐츠 영역만 잘라 쓴다 */}
+              <LottiePlayer
+                file="thinking.json"
+                width={320}
+                viewBox="245 186 494 714"
+                label="결심을 지킬 방법을 고민하는 사람"
+                className="mt-6"
+              />
             </div>
           </Reveal>
 

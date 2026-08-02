@@ -8,7 +8,7 @@
 | 파일명 | 사용 위치 | 담아야 할 내용 |
 |---|---|---|
 | `hero_tb.png` ✅ 적용됨 | `home/Section01Hero.tsx` (PC·태블릿·모바일 공통) | 히어로 — 알람 울림·촬영 준비 화면 (step_02.png와 같은 내용의 별도 파일) |
-| `section_02_alarm.png` | `home/Section02Screentime.tsx` | 아침 알람이 여러 개 울리는 화면 |
+| ~~`section_02_alarm.png`~~ | — | 사용하지 않음. Lottie 애니메이션(`lottie/thinking.json`)으로 대체됨 |
 | `tool-1.svg` ✅ 적용됨 | `home/Section04Apps.tsx` | 끄면 끝, 일반 알람 앱 — 알람 끄고 자는 모티 일러스트 |
 | `tool-2.svg` ✅ 적용됨 | `home/Section04Apps.tsx` | 체크만 하면 끝, 투두 앱 — 대충 체크하는 모티 일러스트 |
 | `tool-3.svg` ✅ 적용됨 | `home/Section04Apps.tsx` | 나만 아는 거짓말, 습관 앱 — 완료 표시뿐인 습관앱과 늘어진 모티 일러스트 |
@@ -26,6 +26,17 @@
 | `cta_mockup.png` ✅ 적용됨 | `home/Section10CTA.tsx` | 최종 CTA 그라디언트 위 목업 — 기록 화면 + 화난 모티 v3 (1830×1334, 팔레트 PNG 203KB로 최적화). 이미지 하단이 섹션 하단과 여백 없이 붙도록 섹션 하단 패딩을 제거했으니, 교체 시 하단에 투명 여백이 없는 이미지를 넣을 것. 배경 그라디언트는 피그마 값(0% #150808 → 100% #A22121, 수직) 적용 |
 
 > 앱 화면 자리는 **기종을 특정하지 않는 심플한 블랙 베젤**로 감쌉니다 (노치·홈버튼 없음 — 배경과 분리감을 주기 위한 최소한의 프레임). 세로 이미지를 넣으면 베젤 안에서 원본 비율 그대로 표시되고 잘리지 않습니다. iOS·Android 어느 쪽 스크린샷을 쓰든 상관없어요. 가로 폭만 컴포넌트가 맞추고 높이는 이미지가 정합니다.
+
+## Lottie 애니메이션 (public/assets/lottie/)
+
+| 파일명 | 사용 위치 | 비고 |
+|---|---|---|
+| `thinking.json` ✅ 적용됨 | `home/Section02Screentime.tsx` | 결심을 고민하는 사람 (1000×900, 25fps, 10초 루프). 편집용 메타데이터 제거 + 소수점 반올림으로 75KB → 63KB 최적화 |
+
+교체할 때는 같은 경로에 JSON을 넣고 `Section02Screentime.tsx`의 `viewBox` 값을 새 애니메이션의 콘텐츠 영역에 맞게 조정하세요. 원본 캔버스에 여백이 많을 때 `viewBox="x y w h"`로 잘라 쓰는 구조입니다.
+
+- 재생기는 `components/ui/LottiePlayer.tsx` — lottie-web의 light 빌드(SVG 전용)를 **뷰포트 진입 시에만 동적 로드**하므로 초기 번들에 영향이 없습니다
+- `prefers-reduced-motion` 설정 시 재생하지 않고 첫 프레임만 정지 표시합니다
 
 ## 브랜드 로고 (public/assets/brand/)
 

@@ -16,7 +16,9 @@ export default function Section02Screentime({ locale }: { locale: string }) {
   const rightRest = breakIdx >= 0 ? t.screentime.right.slice(breakIdx + breakAt.length).trim() : "";
 
   return (
-    <section className="section-pad bg-ink-surface">
+    // 3열 배치(lg↑)에서는 가운데 애니메이션이 가장 아래에 오므로 하단 패딩을 없애 섹션 끝과 맞춘다.
+    // 스택 배치(lg 미만)에서는 문구가 마지막이라 하단 패딩을 유지한다.
+    <section className="bg-ink-surface pb-20 pt-20 md:pb-[120px] md:pt-[120px] lg:pb-0">
       <div className="container-content">
         <Reveal>
           <h2 className="section-title text-center">{t.screentime.title}</h2>
